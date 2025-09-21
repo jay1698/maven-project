@@ -1,4 +1,4 @@
-pipeline {
+  pipeline {
     agent any
     tools {
         jdk 'JDK 21'   // must match your JDK name in Jenkins Global Tool Config
@@ -29,7 +29,7 @@ pipeline {
                     if (isUnix()) {
                         sh 'java jay'
                     } else {
-                        bat 'java jay'
+                        bat 'java -cp out gg.jay'
                     }
                 }
             }
