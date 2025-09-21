@@ -19,7 +19,7 @@
                     } else {
                         bat '''
                 if not exist out mkdir out
-                javac -d out src\\main\\java\\**\\*.java
+                javac -d out src\\main\\java\\gg\\jay.java
                 '''
                     }
                 }
