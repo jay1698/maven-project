@@ -6,10 +6,9 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                // Pull code from your GitHub repo
-                git branch: 'main', url: 'https://github.com/jay1698/maven-project.git'
-            }
+    steps {
+        git branch: 'master', url: 'https://github.com/jay1698/maven-project.git', credentialsId: 'GitID'
+    }
         }
 
         stage('Compile Java') {
