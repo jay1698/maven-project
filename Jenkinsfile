@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     // Checking the JDK version
-                    def javaVersion = sh(script: 'java -version', returnStdout: true).trim()
+                    def javaVersion = bat(script: 'java -version', returnStdout: true).trim()
                     echo "JDK Version: ${javaVersion}"
                 }
             }
