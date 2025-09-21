@@ -1,16 +1,37 @@
 pipeline {
     agent any
     tools {
-        jdk 'JDK 21'  // Name of the JDK installation in Jenkins
+        jdk 'jdk-21'   // must match your JDK name in Jenkins Global Tool Config
     }
 
     stages {
-        stage('Check JDK Version') {
+        stage('Checkout') {
+            steps {
+                // Pull code from your GitHub repo
+                git branch: 'main', url: 'https://github.com/jay1698/maven-project.git'
+            }
+        }
+
+        stage('Compile Java') {
             steps {
                 script {
-                    // Checking the JDK version
-                    def javaVersion = bat(script: 'java -version', returnStdout: true).trim()
-                    echo "JDK Version: ${javaVersion}"
+                    if (isUnix()) {
+                        sh 'javac jay.java'
+                    } else {
+                        bat 'javac jay.java'
+                    }
+                }
+            }
+        }
+
+        stage('Run Java') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'java jay'
+                    } else {
+                        bat 'java jay'
+                    }
                 }
             }
         }
