@@ -17,7 +17,7 @@ pipeline {
                     if (isUnix()) {
                         sh 'javac jay.java'
                     } else {
-                        bat 'javac jay.java'
+                        bat 'javac src\\main\\java\\gg\\jay.java'
                     }
                 }
             }
